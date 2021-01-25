@@ -1,0 +1,12 @@
+.page-header{
+    text-align: center;
+    
+}
+
+.page-header-title{
+    font-weight:400;
+}
+
+.page-header-description{
+    padding: 5px;
+}

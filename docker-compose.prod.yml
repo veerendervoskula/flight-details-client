@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  flight-details-client:
+    stdin_open: true
+    container_name: flight-details-client
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1337:80"
+    volumes:
+      - "/app/node_modules"
+      - "./:/app"
+    environment:
+      - IS_API_ENABLED=true
