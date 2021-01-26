@@ -10,21 +10,21 @@ export const StateProvider = ({ reducer, initialState, children }) => {
 
     const deleteFlight = (id) => {
         dispatch({
-            type: 'DELETE_TASK',
+            type: 'DELETE_FLIGHT',
             payload: id
         });
     };
 
     const addFlight = (flight) => {
         dispatch({
-            type: 'ADD_TASK',
+            type: 'ADD_FLIGHT',
             payload: flight
         });
     }
 
     const updateFlight = (flight) => {
         dispatch({
-            type: 'UPDATE_TASK',
+            type: 'UPDATE_FLIGHT',
             payload: flight
         });
     }

@@ -110,20 +110,18 @@ export default function FlightDetailForm(props) {
       <Form onSubmit={handleSubmit}>
         <Grid container alignItems="flex-start" spacing={2}>
           <Grid item xs={6}>
-            <Typography variant="subtitle2" color="primary">
+            <Typography variant="subtitle2" color="primary" gutterBottom>
               Flight number
             </Typography>
             <Typography variant="body2" gutterBottom>
               {flight.flightCode}
             </Typography>
-            <Typography variant="subtitle2" color="primary">
+            <Typography variant="subtitle2" color="primary" gutterBottom>
               Arrival Station
             </Typography>
             <Typography variant="body2" gutterBottom>
               {flight.destinationPortName}
             </Typography>
-
-
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <KeyboardTimePicker
                 autoOk
@@ -133,7 +131,7 @@ export default function FlightDetailForm(props) {
                 label="Scheduled Arrival Time"
                 value={values.scheduledArrivalTime}
                 onChange={date => handleInputChange(convertToDefEventPara("scheduledArrivalTime", date))}
-                KeyboardButtonProps={{
+                keyboardbuttonprops={{
                   'aria-label': 'change time',
                 }}
                 inputVariant="standard"
@@ -169,13 +167,14 @@ export default function FlightDetailForm(props) {
 
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <TimePicker
+                required
                 clearable
                 ampm={false}
                 disabled={values.status === 'ON SCHEDULE' || values.status === 'LANDED'}
                 name="actualArrivalTime"
                 label="Actual Arrival Time"
                 value={values.actualArrivalTime}
-                KeyboardButtonProps={{
+                keyboardbuttonprops={{
                   'aria-label': 'change time',
                 }}
                 onChange={date => handleInputChange(convertToDefEventPara("actualArrivalTime", date))}
