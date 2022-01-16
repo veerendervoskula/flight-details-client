@@ -1,5 +1,5 @@
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
-import { CircularProgress, Divider, Grid, makeStyles, Typography, Box, Paper } from '@material-ui/core';
+import { CircularProgress, Divider, Grid, makeStyles, Typography, Box, Paper, Container } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 import FlightDetailForm from './flight-form';
 import FlightPopup from './flight-popup';
@@ -13,14 +13,10 @@ const useStyles = makeStyles((theme) => ({
     paper: {
         padding: theme.spacing(2),
         height: 75,
-        maxWidth: 1000,
+        maxWidth: 1500,
     },
     progress: {
         textAlign: 'center',
-    },
-    gridContainer: {
-        paddingLeft: "250px",
-        paddingRight: "250px"
     },
     arrivalTime: {
         display: 'inline-block',
@@ -99,7 +95,8 @@ export const FlightDetails = (props) => {
     }
 
     return (
-        <div className={classes.root}>
+        // <div className={classes.root}>
+        <Container maxWidth="sm">
             {
                 isFetching ? (<CircularProgress className={classes.progress} />) :
                     hasError ? (
@@ -110,7 +107,7 @@ export const FlightDetails = (props) => {
                         </Typography>
                     ) :
                         (flightDetails.length > 0 ? flightDetails.map(item =>
-                            <Grid container spacing={3} justify="space-between" className={classes.gridContainer} key={item._id}>
+                            <Grid container spacing={3} justify="space-between" key={item._id}>
                                 <Grid item xs={12}>
                                     <Paper className={classes.paper} elevation={3}>
                                         <Grid container spacing={2}>
@@ -178,6 +175,7 @@ export const FlightDetails = (props) => {
             >
                 <FlightDetailForm flight={selectedFlight} handleSave={handleSave} />
             </FlightPopup>
-        </div>
+        {/* </div> */}
+        </Container>
     )
 }

@@ -16,7 +16,7 @@ export const getFlightStatus = () => ([
 ]);
 
 export const ENDPOINTS = {
-    FLIGHT_DETAILS: '/flight-details',
+    FLIGHT_DETAILS: './flight-details.json',
 }
 
 export function updateFlight(flightData) {

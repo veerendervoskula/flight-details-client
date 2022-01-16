@@ -13,3 +13,8 @@ services:
       - "./:/app"
     environment:
       - IS_API_ENABLED=true
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
